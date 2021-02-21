@@ -9,6 +9,72 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        let leadingItem = Button(action: { print("Leading item tapped") }, label: {
+            Image(systemName: "bell").imageScale(.large)
+        })
+        
+        let trailingItem = Button(action: { print("Trailing") }, label: {
+            Image(systemName: "gear").imageScale(.large)
+        })
+        
+        NavigationView {
+            /*
+            Image(systemName: "swift")
+                .navigationBarItems(leading: leadingItem, trailing: trailingItem)
+                .navigationBarTitle("내비게이션 바 타이틀")
+            */
+            
+            /*
+            NavigationLink(
+                destination: Text("Destination View")) {
+                Image(systemName: "swift").renderingMode(.original)
+            }
+            .navigationBarTitle("네비게이션 링크")
+            */
+            
+            /*
+            NavigationLink(
+                destination: Text("Destination View")) {
+                Image(systemName: "swift").renderingMode(.original)
+            }
+            .navigationBarTitle("네비게이션 바 히든")
+            .navigationBarHidden(true)
+            */
+            
+            /*
+            NavigationLink(
+                destination: Text("Destination View").navigationBarBackButtonHidden(true)) {
+                Image(systemName: "swift").renderingMode(.original)
+            }
+            .navigationBarTitle("네비게이션 바 백버튼 히든")
+            */
+            
+            VStack(spacing: 20) {
+                NavigationLink(
+                    destination: Text("디테일 뷰 영역").font(.largeTitle)) {
+                    Text("마스터 뷰 메뉴1").font(.title)
+                }
+                
+                NavigationLink(
+                    destination: Text("디테일 뷰 영역").font(.largeTitle)) {
+                    Text("마스터 뷰 메뉴2").font(.title)
+                }
+            }
+            .navigationBarTitle("네비게이션 뷰 스타일")
+            
+            Text("디테일 뷰").font(.largeTitle)
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+struct ButtonsView: View {
+    var body: some View {
         VStack {
             HStack(spacing: 20) {
                 Button("Button") {
@@ -65,11 +131,5 @@ struct ContentView: View {
                 })
             }
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
